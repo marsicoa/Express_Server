@@ -1,12 +1,5 @@
 const fs = require('fs')
-//const fsPromises = fs.promises
-/*
-❏ readFile: lectura de un archivo en forma asincrónica
-❏ writeFile: escritura de un archivo en forma asincrónica
-❏ appendFile: actualización de un archivo en forma asincrónica
-❏ unlink: borrado de un archivo en forma asincrónica
-❏ mkdir: creación de una carpeta
-*/
+
 let db = []
 class Contenedor{
     constructor(archivo){
@@ -35,46 +28,6 @@ class Contenedor{
         }
         escribirProductos().then(res => res)
         
-        /*
-        // pruebita
-        const escribirObjetos = async () => {
-            try{
-                await fs.promises.writeFile(this.archivo, `${JSON.stringify(db)}`)
-                return o.id                
-            }
-            catch (err) {
-                console.error(`Error al guardar el elemento ${o.id}`)
-            }
-        }
-
-        const leerObjetos = async () => {
-            try{
-                const res = await fs.promises.readFile(this.archivo, 'UTF-8')
-                return res
-            }
-            catch (err) {
-                console.log(`${err} No se encuentra el archivo ${this.archivo}, se procede a crearlo`)
-                await fs.promises.writeFile(this.archivo, '')
-            }
-        }
-        leerObjetos().then((res) => {
-            let id
-            if(res.length == 0){
-                id = 1
-                o.id = id
-                db.push(o)
-            }else{
-                let regex = /("id":\d+)/g
-                let resultadoRegex = res.toString().match(regex)
-                id = resultadoRegex.length
-                o.id = ++id
-                db = JSON.parse(res)
-                db.push(o)
-            }
-            escribirObjetos().then(res => res)
-        })
-        */
-
     }
 
     getById(n){
